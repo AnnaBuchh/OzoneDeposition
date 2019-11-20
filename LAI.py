@@ -17,7 +17,7 @@ SGS, EGS = int(data_dict["Astart_FD"]), int(data_dict["Aend_FD"])
 LAIp_a, LAIp_b = int(data_dict["LAI_1"]), int(data_dict["LAI_2"])
 LAI_a, LAI_b, LAI_c, LAI_d = data_dict["LAI_a"], data_dict["LAI_b"], data_dict["LAI_c"], data_dict["LAI_d"]
 
-# LAI parameters LAI_a - LAI_2 set up according Simpson 2003 (NWSEDI DOKONALE!!..)
+# LAI parameters LAI_a - LAI_2 set up according Simpson 2003         (NWSEDI DOKONALE!!..)
 LAI = np.full(365,np.NaN)
 
 LAI[:SGS - 1]=LAI_a

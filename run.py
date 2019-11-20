@@ -65,10 +65,12 @@ vrstol = np.vectorize(rs.rstol)
 vrstol = pd.Series(vrstol(gstol))
 
 Rsur = rs.Rsur(LAI.LAI, vrstol , Rinc)
-
+#problem, teraz je LAI array, preto Raur nevie ktore z LAI pouzit...
+#teraz rieš ine...
 cO3_nmolm3 = fn.cO3_nmolm3(data["O3_zR (ppb)"], data["P (kPa)"], data["Ts_C (C)"])
 
 Fst_l = flux.Fstl(cO3_nmolm3, Rsur, rs.Rb(vu_star), gstol)
+
 
 POD0, POD1 = 0, 0
 for i in range(1,8760):

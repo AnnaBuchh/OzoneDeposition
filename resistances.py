@@ -66,15 +66,15 @@ def rstol(gstol):
         temp = 41000 / gstol
     return temp
 
-def Rsur(LAI, rstol,  Rinc):
+def Rsur(LAIt, rstol,  Rinc):
     """Aurface resistance to ozone deposition , it comprises of resistance of plant canopy and undeelying soil.
     Emberson 2001 Modelling and mapping ozone deposition in Europe
     [s m-1]
     rext is the external resistance of the exterior plant parts, Rinc is the land-cover specific in-canooy aerodynamic resistance,
     Rsoil = Rgs is the soil resistance to destruction or absorption at the ground surface"""
-    if LAI == data_dict["LAI_a"] or LAI == data_dict["LAI_d"]:
-        SAI = LAI
+    if LAIt == data_dict["LAI_a"] or LAIt == data_dict["LAI_d"]:
+        SAI = LAIt
     else:
-        SAI = LAI + 1
-    temp = 1 / (LAI / rstol + SAI/data_dict["rext"] + 1/(Rinc + data_dict["Rsoil"]))
+        SAI = LAIt + 1
+    temp = 1 / (LAIt / rstol + (1 + LAIt)/data_dict["rext"] + 1/(Rinc + data_dict["Rsoil"]))
     return temp
